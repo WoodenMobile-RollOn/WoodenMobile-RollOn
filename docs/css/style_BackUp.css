@@ -1,0 +1,637 @@
+
+/* ============================================================
+   WOODENMOBILE ROLLON - SAUBER & EINFACH
+   ============================================================ */
+
+/* ===== BASIS ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.7;
+  color: #1f2933;
+  background-color: #f4f5f7;
+  font-size: 18px;
+}
+
+/* EINHEITLICHE ÜBERSCHRIFTEN - Website-weit (kleiner außer Hero) */
+h1, h2, h3 {
+  margin-top: 0;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+h1 { font-size: 5.5rem; line-height: 1.1; } /* Hero - unverändert groß */
+h2 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 1.5rem; } /* Alle Sections - kleiner */
+h3 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 1rem; } /* Cards/Blocks - kleiner */
+
+section { padding: 100px 20px; }
+.container { max-width: 1300px; margin: 0 auto; }
+
+/* ===== ALTERNIERENDE BG - WEISS ↔ GRAU ===== */
+section:nth-of-type(odd) { background-color: #ffffff !important; }
+section:nth-of-type(even) { background-color: #f0f2f5 !important; }
+
+/* ===== TEXTFELDER - AUTOMATISCH GEGENSÄTZLICH ZUM BG ===== */
+section:nth-of-type(odd) .feature-card,
+section:nth-of-type(odd) .grid-item,
+section:nth-of-type(odd) .timeline-content,
+section:nth-of-type(odd) .opensource-card,
+section:nth-of-type(odd) .big-blob {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  color: #1f2937;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 16px 40px rgba(15,23,42,0.12);
+}
+
+section:nth-of-type(even) .feature-card,
+section:nth-of-type(even) .grid-item,
+section:nth-of-type(even) .timeline-content,
+section:nth-of-type(even) .opensource-card,
+section:nth-of-type(even) .big-blob {
+  background: rgba(255,255,255,0.92) !important;
+  backdrop-filter: blur(20px);
+  color: #1f2937;
+  border: 1px solid rgba(226,232,240,0.8);
+  box-shadow: 0 20px 48px rgba(15,23,42,0.18);
+}
+
+/* ============================================================
+   HERO - FIX: BILDER RICHTIG + ÜBERSCHRIFT KLEINER
+   ============================================================ */
+.hero-image {
+  background: #ffffff !important;
+  position: relative;
+  min-height: 95vh;
+  padding: 40px 40px;
+  overflow: hidden; /* ← Bilder bleiben drin */
+}
+
+/* BILDER - ABSOLUTE (NICHT FIXED) */
+.hero-image-left,
+.hero-image-right {
+  position: absolute;  /* ← FIXED → ABSOLUTE */
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32vw;
+  max-width: 500px;
+  height: 70vh;
+  max-height: 750px;
+}
+
+.hero-image-left { left: 3%; }
+.hero-image-right { right: 3%; }
+
+.hero-image-left img,
+.hero-image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 8%;
+}
+
+.hero-content h1 { 
+  color: #111827 !important;
+  font-size: 4.8rem;  /* ← 5.5rem → 4.8rem (KLEINER) */
+  line-height: 1.1;
+  margin-bottom: 1.8rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 5%;
+}
+
+.hero-sub { 
+  color: #374151 !important;
+  font-size: 1.5rem;
+  margin: 0 auto 3rem;
+  max-width: 700px;
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 3rem auto 3.5rem;
+  color: #4b5563;
+  font-size: 1.1rem;
+  max-width: 750px;
+}
+
+.hero-list li { margin-bottom: 1rem; }
+
+.hero-cta {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .hero-image-left,
+  .hero-image-right {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+  }
+  
+  .hero-image-left { left: 5%; }
+  .hero-image-right { right: 5%; }
+  
+  .hero-content h1 { font-size: 3.5rem; }
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   HERO SECTION (große Überschrift bleibt)
+   ============================================================ */
+/*
+.hero-image {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}*/
+
+/* ============================================================
+   BUTTONS - WEISSER HINTERGRUND KOMPATIBEL
+   ============================================================ */
+.btn-primary, .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: #f9fafb;
+  border: 1px solid rgba(59,130,246,0.9);
+  box-shadow: 0 14px 32px rgba(37,99,235,0.45);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(37,99,235,0.55);
+  background: linear-gradient(135deg, #0ea5e9, #1d4ed8);
+}
+
+/* GEÄNDERT: Funktioniert auf WEISS */
+.btn-ghost {
+  color: #1f2937 !important;      /* DUNKEL */
+  background: rgba(248,250,252,0.8);  /* HELLGRAU */
+  border: 2px solid #d1d5db;          /* GRAUER RAND */
+  backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: #3b82f6;              /* BLAU bei Hover */
+  box-shadow: 0 12px 28px rgba(37,99,235,0.15);
+}
+
+
+/* ============================================================
+   KEYPOINTS (Überschrift jetzt einheitlich kleiner)
+   ============================================================ */
+.keypoints-section { padding: 120px 20px !important; }
+
+.keypoints-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.keypoints h2 { grid-column: 1 / -1; text-align: center; margin-bottom: 50px; }
+
+.keypoint {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 35px;
+  align-items: flex-start;
+}
+
+.key-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  min-width: 70px;
+  line-height: 1.1;
+}
+
+.keypoint h3 { margin: 0 0 8px 0; }
+.keypoint p { margin: 0; color: #6b7280; font-size: 1rem; line-height: 1.7; }
+
+/* Farbig hinterlegte Blöcke */
+.blocks { display: flex; flex-direction: column; gap: 25px; }
+
+.block-blue, .block-cyan, .block-purple {
+  padding: 30px;
+  border-radius: 20px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.block-blue { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; box-shadow: 0 12px 32px rgba(37,99,235,0.3); }
+.block-cyan { background: linear-gradient(135deg, #06b6d4, #0891b2); color: white; box-shadow: 0 12px 32px rgba(6,182,212,0.3); }
+.block-purple { background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; box-shadow: 0 12px 32px rgba(124,58,237,0.3); }
+
+/* ============================================================
+   TEXTBLOB (Überschrift jetzt einheitlich kleiner)
+   ============================================================ */
+.text-blob { padding: 120px 20px; }
+.text-blob h2 { text-align: center; margin-bottom: 40px; }
+
+.big-blob {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  border-radius: 24px;
+  font-size: 1rem;
+  line-height: 1.7;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.features, .timeline, .info-grid, .opensource, .intro-highlight { background: transparent !important; }
+
+.features .container > h2 { text-align: center; margin-bottom: 0.5rem; }
+.features-intro { text-align: center; max-width: 720px; margin: 0 auto 50px; color: #4b5563; }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 36px;
+  margin-top: 20px;
+}
+
+.feature-card {
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.18s ease;
+}
+.feature-card:hover { transform: translateY(-4px); }
+
+.feature-card img { width: 100%; height: 260px; object-fit: cover; }
+.feature-card .text { padding: 26px 26px 24px; }
+.feature-card h3 { margin-bottom: 10px; }
+
+/* ============================================================
+   EINSATZ & PRINZIPIEN - 2 BILDER + TEXT
+   ============================================================ */
+.einsatz-prinzipien {
+  /* Nutzt globale section + alternierende BG */
+}
+
+.ep-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 60px 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ep-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(15,23,42,0.15);
+}
+
+.ep-text {
+  max-width: 900px;
+  margin: 0 auto 0;
+  padding: 40px 50px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226,232,240,0.8);
+  box-shadow: 0 20px 50px rgba(15,23,42,0.12);
+  text-align: center;
+}
+
+.ep-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #1f2933;
+  margin-bottom: 1.2rem;
+}
+
+.ep-text p:first-child {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .ep-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 40px 0;
+  }
+  
+  .ep-image img {
+    height: 300px;
+  }
+  
+  .ep-text {
+    padding: 30px 25px;
+    margin-top: 2rem;
+  }
+}
+
+
+/* ============================================================
+   TIMELINE - KREIS UNSICHTBAR GEMACHT
+   ============================================================ */
+.timeline .container > h2 { text-align: center; margin-bottom: 0.4rem; }
+.timeline-sub { text-align: center; max-width: 700px; margin: 0 auto 60px; color: #4b5563; }
+.timeline-wrapper { position: relative; margin-top: 40px; padding-left: 120px; padding-bottom: 40px; }
+
+.timeline-wrapper::before { 
+  content: ""; 
+  position: absolute; 
+  left: 60px; 
+  top: 0; 
+  bottom: 36px; 
+  width: 4px; 
+  background: linear-gradient(to bottom, #38bdf8, #2563eb); 
+}
+
+.timeline-wrapper::after { 
+  content: ""; 
+  position: absolute; 
+  left: 52px; 
+  bottom: 0; 
+  width: 0; 
+  height: 0; 
+  border-left: 12px solid transparent; 
+  border-right: 12px solid transparent; 
+  border-top: 18px solid #2563eb; 
+}
+
+.timeline-item { 
+  display: flex; 
+  gap: 34px; 
+  margin-bottom: 60px; 
+  position: relative; 
+  align-items: center; 
+}
+
+/* **KREIS VOLLKOMMEN UNSICHTBAR** */
+.timeline-item::before { 
+  display: none !important;  /* ← WEG */
+}
+
+/* Nur Timeline-Bilder geändert - REST IDENTISCH */
+.timeline-item img { 
+  width: 360px;     /* ← 320px → 360px (+12.5%) */
+  height: 236px;    /* ← 210px → 236px (+12.5%) */
+  object-fit: cover; 
+  border-radius: 16px; 
+  flex-shrink: 0; 
+  box-shadow: 0 16px 36px rgba(15,23,42,0.22); 
+  transition: all 0.18s ease; 
+}
+
+.timeline-item:hover img { 
+  transform: translateY(-4px); 
+  box-shadow: 0 22px 48px rgba(15,23,42,0.28); 
+}
+
+.timeline-content { 
+  background-color: #ffffff; 
+  padding: 24px 26px; 
+  border-radius: 14px; 
+  box-shadow: 0 8px 24px rgba(15,23,42,0.10); 
+}
+
+.timeline-label { 
+  font-size: 0.78rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.14em; 
+  color: #6b7280; 
+  margin-bottom: 4px; 
+}
+
+.timeline-content h3 { margin-bottom: 6px; }
+
+/* ============================================================
+   DOWNLOADS
+   ============================================================ */
+.downloads { 
+  /* nutzt deine globalen section paddings + alternierende BG */
+}
+
+.downloads-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 50px;
+  align-items: center;
+}
+
+/* Linke Bildspalte */
+.downloads-image img {
+  width: 100%;
+  max-width: 560px;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 22px 55px rgba(15,23,42,0.32);
+}
+
+/* Rechte Content-Spalte */
+.downloads-content {
+  padding: 32px 32px 28px;
+  border-radius: 22px;
+  box-shadow: 0 18px 44px rgba(15,23,42,0.16);
+}
+
+/* Farblich an deine Karten-Logik angepasst */
+section:nth-of-type(odd).downloads .downloads-content {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  color: #1f2933;
+}
+
+section:nth-of-type(even).downloads .downloads-content {
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(226,232,240,0.9);
+  color: #1f2933;
+}
+
+/* Typografie im Download-Bereich */
+.downloads-content h2 {
+  margin-bottom: 0.8rem; /* übernimmt globales h2 sizing */
+}
+
+.downloads-content p {
+  margin: 0 0 1.6rem 0;
+  color: #4b5563;
+}
+
+/* Download-Liste */
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Download-Elemente */
+.download-item {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  background: rgba(15,23,42,0.03);
+  border: 1px solid rgba(148,163,184,0.45);
+  transition: all 0.16s ease;
+  color: #111827;
+}
+
+.download-item:hover {
+  background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+  border-color: #3b82f6;
+  box-shadow: 0 10px 26px rgba(37,99,235,0.18);
+  transform: translateY(-1px);
+}
+
+.download-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.download-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Responsive: Bild über Content stapeln */
+@media (max-width: 900px) {
+  .downloads-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .downloads-image img {
+    max-width: 100%;
+  }
+
+  .downloads-content {
+    padding: 24px 20px 22px;
+  }
+}
+
+
+/* ============================================================
+   OPEN SOURCE
+   ============================================================ */
+.opensource .container { max-width: 1100px; }
+.opensource-header { text-align: center; margin-bottom: 40px; }
+.opensource-header h2 { margin-bottom: 0.4rem; }
+.opensource-tagline { max-width: 680px; margin: 0 auto; color: #4b5563; }
+
+.opensource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 30px;
+}
+
+.opensource-card {
+  border-radius: 16px;
+  padding: 24px 26px;
+  transition: all 0.18s ease;
+}
+.opensource-card h3 { margin-bottom: 10px; }
+.opensource-card p { margin-bottom: 0.9rem; }
+.opensource-card a { color: #2563eb; text-decoration: none; }
+.opensource-card a:hover { text-decoration: underline; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer { background-color: #0b1120; color: #e5e7eb; padding: 26px 20px 30px; }
+.footer-inner { max-width: 1300px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px 30px; align-items: center; justify-content: space-between; }
+.footer-brand { margin: 0; font-weight: 600; }
+.footer-meta { margin: 4px 0 0; font-size: 0.9rem; color: #9ca3af; }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.95rem; }
+.footer-links a { color: #e5e7eb; text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  section { padding: 80px 20px; }
+  .hero-image { min-height: 80vh; padding: 60px 20px; }
+  .hero-content h1 { font-size: 3.5rem; } /* Hero bleibt groß */
+  .keypoints-split { grid-template-columns: 1fr; gap: 40px; }
+  .keypoint { flex-direction: column; text-align: center; }
+  .key-number { min-width: auto; }
+  h2 { font-size: 1.9rem; } /* Alle h2 kleiner */
+} 
