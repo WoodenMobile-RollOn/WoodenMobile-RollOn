@@ -1,92 +1,327 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WoodenMobile RollOn</title>
-
-    <style>
-        /* ===== Grundlayout ===== */
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 6px;
-        }
-
-        h1, h2 {
-            margin-top: 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #777;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WoodenMobile RollOn</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>WoodenMobile RollOn</h1>
-        <p>Projektübersicht & Dokumentation</p>
-    </header>
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero-image">
+  <div class="hero-image-left">
+    <img src="img/bild6.jpg" alt="Rollstuhl links">
+  </div>
 
-    <main>
+  <div class="hero-content">
+    <h1>Ein Rollstuhl, der überall baubar ist</h1>
+    <p class="hero-sub">Ein modularer Holzrollstuhl mit offenen Plänen</p>
 
-        <section>
-            <h2>Über das Projekt</h2>
-            <p>
-                Hier beschreibst du kurz, worum es bei deinem Projekt geht.
-                Was ist die Idee? Wozu dient es?
-            </p>
-        </section>
+    <ul class="hero-list">
+      <li><strong>Lokale Materialien</strong>, einfache Bearbeitung.</li>
+      <li><strong>Definierte Module</strong> statt komplexer Einzelteile.</li>
+      <li><strong>Offene Dokumentation</strong> für Anpassungen vor Ort.</li>
+    </ul>
 
-        <section>
-            <h2>Ziele</h2>
-            <ul>
-                <li>Ziel 1</li>
-                <li>Ziel 2</li>
-                <li>Ziel 3</li>
-            </ul>
-        </section>
+    <div class="hero-cta">
+      <a href="#timeline" class="btn-primary">Zur Produktentwicklung</a>
+      <a href="#downloads" class="btn-ghost">Downloads</a>
+      <a href="#prinzipien" class="btn-ghost">Prinzipien ansehen</a>
+    </div>
+  </div>
 
-        <section>
-            <h2>Aktueller Stand</h2>
-            <p>
-                Beschreibe hier, wo das Projekt gerade steht
-                und was als Nächstes geplant ist.
-            </p>
-        </section>
+  <div class="hero-image-right">
+    <img src="img/bild2.jpg" alt="Rollstuhl rechts">
+  </div>
+</section>
 
-    </main>
+<!-- =========================================================
+     KEYPOINTS
+========================================================= -->
+<section class="keypoints-section">
+  <div class="container">
+    <div class="keypoints-split">
+      <div class="keypoints">
+        <h2>Warum WoodenMobile?</h2>
 
-    <footer>
-        © 2026 WoodenMobile RollOn
-    </footer>
+        <div class="keypoint">
+          <span class="key-number">01</span>
+          <div>
+            <h3>Wo Rollstühle fehlen</h3>
+            <p>In vielen Regionen sind professionelle Rollstühle unbezahlbar oder gar nicht verfügbar.</p>
+          </div>
+        </div>
+
+        <div class="keypoint">
+          <span class="key-number">02</span>
+          <div>
+            <h3>Lokale Lösungen</h3>
+            <p>Werkstätten können mit einheimischen Werkstoffen und Werkzeugen bauen.</p>
+          </div>
+        </div>
+
+        <div class="keypoint">
+          <span class="key-number">03</span>
+          <div>
+            <h3>Unabhängigkeit</h3>
+            <p>Reparaturen und Anpassungen direkt vor Ort – ohne Importteile.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="blocks">
+        <div class="block-blue">
+          <h4>🌍 Globale Reichweite</h4>
+          <p>Über 400 Millionen Menschen brauchen Mobilitätshilfen – WoodenMobile erreicht sie dort, wo andere nicht hinkommen.</p>
+        </div>
+        <div class="block-cyan">
+          <h4>⚒️ Werkstatt-tauglich</h4>
+          <p>Keine CNC-Fräsen nötig. Kreissäge, Bohrer und Schrauben genügen.</p>
+        </div>
+        <div class="block-purple">
+          <h4>💰 Kosten: 120–180 €</h4>
+          <p>Bis zu 80 % günstiger als Importmodelle – abhängig von lokalen Holzpreisen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     EINSATZ & PRINZIPIEN
+========================================================= -->
+<section class="einsatz-prinzipien" id="einsatz">
+  <div class="container">
+    <h2>Einsatz und Prinzipien</h2>
+
+    <div class="ep-grid">
+      <div class="ep-image">
+        <img src="img/bild2.jpg" alt="Lokale Werkstatt">
+      </div>
+      <div class="ep-image">
+        <img src="img/bild5.jpg" alt="Nutzer im Einsatz">
+      </div>
+    </div>
+
+    <div class="ep-text">
+      <p><strong>WoodenMobile verbindet lokale Fertigung mit globaler Zusammenarbeit.</strong></p>
+      <p>
+        Lokale Werkstätten bauen mit einheimischen Materialien.
+        Offene Lizenzen ermöglichen weltweite Anpassung und Weiterentwicklung.
+        Jeder gebaute Rollstuhl schafft Jobs vor Ort und gibt Menschen ihre Mobilität zurück.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     HERAUSFORDERUNG / TEXTBLOB
+========================================================= -->
+<section class="text-blob">
+  <div class="container">
+    <h2>Die Herausforderung</h2>
+    <div class="big-blob">
+      <p><strong>400 Millionen Menschen</strong> brauchen Rollstühle – nur <strong>5–15 % bekommen welche.</strong></p>
+      <p>Importmodelle sind zu teuer, Ersatzteile kommen nie an, Reparaturen sind unmöglich.</p>
+      <p><strong>WoodenMobile löst das:</strong> Lokale Werkstätten bauen mit Holz + Standardwerkzeugen. Modular, reparierbar, offen.</p>
+      <p><em>„Mobilität für alle – überall baubar, überall wartbar.“</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PRINZIPIEN / FEATURES
+========================================================= -->
+<section class="features" id="prinzipien">
+  <div class="container">
+    <h2>Unsere Prinzipien</h2>
+    <p class="features-intro">
+      WoodenMobile verbindet robuste Technik mit klarer Dokumentation,
+      damit Werkstätten weltweit eigenständig Lösungen aufbauen können.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="img/bild2.jpg" alt="Modularität">
+        <div class="text">
+          <h3>Modularität</h3>
+          <p>Alle Baugruppen sind klar getrennt, austauschbar und anpassbar.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="img/bild2.jpg" alt="Nachhaltigkeit">
+        <div class="text">
+          <h3>Nachhaltigkeit</h3>
+          <p>Holz als regionaler, langlebiger und ressourcenschonender Werkstoff.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="img/bild2.jpg" alt="Open Source">
+        <div class="text">
+          <h3>Open Source</h3>
+          <p>Offene Lizenzen ermöglichen globale Zusammenarbeit und Weiterentwicklung.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     TIMELINE
+========================================================= -->
+<section class="timeline" id="timeline">
+  <div class="container">
+    <h2>Produktentwicklung</h2>
+    <p class="timeline-sub">
+      Vom ersten Konzept bis zur offenen Veröffentlichung.
+    </p>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-item">
+        <img src="img/bild5.jpg" alt="">
+        <div class="timeline-content">
+          <div class="timeline-label">Schritt 1</div>
+          <h3>Ideenfindung</h3>
+          <p>Analyse bestehender Lösungen und Definition der Kernziele.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="img/bild2.jpg" alt="">
+        <div class="timeline-content">
+          <div class="timeline-label">Schritt 2</div>
+          <h3>Konzeptdesign</h3>
+          <p>Entwicklung eines modularen, holzbasierten Gesamtkonzepts.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="img/bild2.jpg" alt="">
+        <div class="timeline-content">
+          <div class="timeline-label">Schritt 3</div>
+          <h3>Erster Prototyp</h3>
+          <p>Bau und Test unter Werkstattbedingungen.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="img/bild2.jpg" alt="">
+        <div class="timeline-content">
+          <div class="timeline-label">Schritt 4</div>
+          <h3>Iteration</h3>
+          <p>Verbesserungen anhand von Feedback und Praxistests.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="img/bild2.jpg" alt="">
+        <div class="timeline-content">
+          <div class="timeline-label">Schritt 5</div>
+          <h3>Dokumentation</h3>
+          <p>Erstellung von Bauanleitungen und Stücklisten.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <img src="img/bild2.jpg" alt="">
+        <div class="timeline-content">
+          <div class="timeline-label">Schritt 6</div>
+          <h3>Open-Source-Release</h3>
+          <p>Freigabe aller Daten unter offenen Lizenzen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     DOWNLOADS
+========================================================= -->
+<section class="downloads" id="downloads">
+  <div class="container downloads-layout">
+    <div class="downloads-image">
+      <img src="img/bild2.jpg" alt="Downloads Vorschau">
+    </div>
+
+    <div class="downloads-content">
+      <h2>Downloads</h2>
+      <p>Alle wichtigen Unterlagen für Aufbau und Planung.</p>
+
+      <div class="download-list">
+        <a class="download-item" href="downloads/Test-Montageanleitung.pdf" download>
+          <span class="download-title">Test-Montageanleitung</span>
+          <span class="download-meta">PDF · Montage & Aufbau</span>
+        </a>
+
+        <a class="download-item" href="downloads/Test-Stückliste.pdf" download>
+          <span class="download-title">Test-Stückliste</span>
+          <span class="download-meta">PDF · Teile & Komponenten</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     OPEN SOURCE
+========================================================= -->
+<section class="opensource" id="opensource">
+  <div class="container">
+    <div class="opensource-header">
+      <h2>Open Source</h2>
+      <p class="opensource-tagline">
+        WoodenMobile RollOn ist als offene Hardware konzipiert.
+      </p>
+    </div>
+
+    <div class="opensource-grid">
+      <div class="opensource-card">
+        <h3>Hardware-Designs</h3>
+        <p>
+          CERN Open Hardware Licence v2 – Strongly Reciprocal (CERN-OHL-S v2).
+        </p>
+        <a href="https://github.com/WoodenMobile-RollOn/WoodenMobile-RollOn/blob/main/LICENSES/CERN-OHL-S_v2.txt" target="_blank">
+          Lizenztext ansehen
+        </a>
+      </div>
+
+      <div class="opensource-card">
+        <h3>Dokumentation & Medien</h3>
+        <p>
+          Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+        </p>
+        <a href="https://github.com/WoodenMobile-RollOn/WoodenMobile-RollOn/blob/main/LICENSES/CC-BY-SA-4.0.txt" target="_blank">
+          Lizenztext ansehen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p class="footer-brand">© 2026 RollOn e.V. · WoodenMobile RollOn</p>
+      <p class="footer-meta">Ein Open-Hardware-Projekt für lokal baubare Mobilität.</p>
+    </div>
+    <div class="footer-links">
+      <a href="lizenz.html">Lizenzen</a>
+      <span>·</span>
+      <a href="impressum.html">Impressum</a>
+      <span>·</span>
+      <a href="#opensource">Open Source</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
