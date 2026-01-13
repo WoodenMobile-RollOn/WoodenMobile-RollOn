@@ -1,0 +1,29 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Workflow startet, wenn du auf main pushst
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Repository auschecken
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. (Optional) Node.js installieren, falls du Web-Builder nutzen willst
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '18'
+
+      # 3. Deployment auf GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages   # Branch, der die Website hostet
+          publish_dir: ./docs        # Ordner mit deiner Website-Dateien
