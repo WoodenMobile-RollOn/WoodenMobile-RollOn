@@ -640,6 +640,9 @@ section:nth-of-type(even) .ep-text {
   justify-content: center;
 
   margin-top: 10px;
+  margin-left: auto;      /* ← NEU */
+  margin-right: auto;     /* ← NEU */
+
   padding: 14px 30px;
 
   font-size: 1rem;
