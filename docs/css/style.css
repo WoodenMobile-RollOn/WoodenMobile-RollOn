@@ -632,61 +632,36 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   CONTACT – kompakt, breit, Button im Kontaktblock
+   CONTACT – Partner Button (erzwingt Blau)
 ============================================================ */
-.contact .container {
-  max-width: 1100px;
-  text-align: center;
-}
-
-.contact-intro {
-  max-width: 900px;
-  margin: 0 auto 22px;
-  color: var(--text-muted);
-  line-height: 1.65;
-}
-
-/* Zentrierter Kontaktblock */
-.contact-center {
-  display: flex;
+.btn-partner {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+
+  margin-top: 10px;
+  padding: 14px 30px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  color: #ffffff !important;
+  text-decoration: none;
+
+  background: linear-gradient(135deg, #38bdf8, #2563eb) !important;
+  border: 1px solid rgba(37,99,235,0.95) !important;
+
+  border-radius: 999px;
+  box-shadow: 0 16px 36px rgba(37,99,235,0.45);
+
+  transition: all 0.2s ease;
 }
 
-.contact-card {
-  padding: 22px 26px;
-  border-radius: var(--radius-lg);
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-}
-
-.contact-card h3 {
-  margin-bottom: 8px;
-}
-
-.contact-card p {
-  margin: 0 0 6px 0;
-  color: var(--text);
-}
-
-/* Button direkt unter Telefonnummer */
-.contact-button {
-  margin-top: 10px;     /* bewusst wenig Abstand */
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .contact .container {
-    max-width: 100%;
-  }
-
-  .contact-intro {
-    max-width: 100%;
-  }
-
-  .contact-card {
-    padding: 20px 22px;
-  }
+.btn-partner:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0ea5e9, #1d4ed8) !important;
+  box-shadow: 0 22px 48px rgba(37,99,235,0.6);
 }
 
 
