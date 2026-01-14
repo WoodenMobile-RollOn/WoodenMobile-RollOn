@@ -129,33 +129,10 @@ section:nth-of-type(even) .ep-text {
 ============================================================ */
 .hero-image {
   position: relative;
-  min-height: 78vh;         /* kürzer als vorher (95vh) */
-  padding: 28px 20px;       /* kompakter */
+  min-height: 78vh;
+  padding: 28px 20px;
   overflow: hidden;
   background: #ffffff;
-}
-
-.hero-image-left,
-.hero-image-right {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32vw;
-  max-width: 500px;
-  height: 52vh;             /* kürzer als vorher (70vh) */
-  max-height: 520px;        /* kürzer als vorher (750px) */
-  z-index: 1;
-}
-
-.hero-image-left { left: 3%; }
-.hero-image-right { right: 3%; }
-
-.hero-image-left img,
-.hero-image-right img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: var(--radius-md); /* moderat */
 }
 
 .hero-content {
@@ -165,12 +142,15 @@ section:nth-of-type(even) .ep-text {
   margin: 0 auto;
   text-align: center;
   padding: 0 8%;
+
+  /* NEU: Content insgesamt etwas nach unten schieben */
+  padding-top: 60px;
 }
 
 .hero-content h1 {
   font-size: 4.8rem;
-  margin-top: 8px;
-  margin-bottom: 1.2rem;
+  margin-top: 0;          /* kontrolliert */
+  margin-bottom: 1.4rem;
   color: var(--text-strong);
 }
 
@@ -180,23 +160,6 @@ section:nth-of-type(even) .ep-text {
   color: #374151;
 }
 
-.hero-list {
-  list-style: none;
-  padding: 0;
-  margin: 3rem auto 3.5rem;
-  max-width: 750px;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-}
-
-.hero-list li { margin-bottom: 1rem; }
-
-.hero-cta {
-  display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 
 /* ============================================================
    BUTTONS
@@ -215,31 +178,33 @@ section:nth-of-type(even) .ep-text {
   font-size: 1rem;
 }
 
+/* Primärer Button (leicht veredelt) */
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
   color: #f9fafb;
-  border: 1px solid rgba(59, 130, 246, 0.9);
-  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.45);
+  border: 1px solid rgba(59,130,246,0.9);
+  box-shadow: 0 14px 32px rgba(37,99,235,0.45);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 42px rgba(37, 99, 235, 0.55);
   background: linear-gradient(135deg, #0ea5e9, #1d4ed8);
+  box-shadow: 0 18px 42px rgba(37,99,235,0.55);
 }
 
+/* Sekundäre Buttons – jetzt auch blau, aber „luftiger“ */
 .btn-ghost {
-  color: #1f2937;
-  background: rgba(248, 250, 252, 0.8);
-  border: 2px solid #d1d5db;
+  background: rgba(37,99,235,0.08);
+  color: #1d4ed8;
+  border: 2px solid rgba(37,99,235,0.35);
   backdrop-filter: blur(10px);
 }
 
 .btn-ghost:hover {
   transform: translateY(-2px);
-  background: #ffffff;
-  border-color: #3b82f6;
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.15);
+  background: rgba(37,99,235,0.14);
+  border-color: #2563eb;
+  box-shadow: 0 12px 28px rgba(37,99,235,0.25);
 }
 
 /* ============================================================
@@ -422,7 +387,7 @@ section:nth-of-type(even) .ep-text {
 .feature-card h3 { margin-bottom: 10px; }
 
 /* ============================================================
-   TIMELINE  (UPDATED: Label links, Tick berührt Strahl, Punkt weg)
+   TIMELINE
 ============================================================ */
 .timeline .container > h2 { 
   margin-bottom: 0.4rem; 
@@ -442,7 +407,7 @@ section:nth-of-type(even) .ep-text {
   padding-bottom: 40px;
 }
 
-/* Haupt-Strahl (einheitliche Farbe, damit Tick exakt passt) */
+/* Haupt-Strahl */
 .timeline-wrapper::before {
   content: "";
   position: absolute;
@@ -462,81 +427,22 @@ section:nth-of-type(even) .ep-text {
   align-items: center;
 }
 
-/* Punkt komplett entfernen */
-.timeline-dot { display: none; }
+/* Punkt entfernen */
+.timeline-dot { 
+  display: none; 
+}
 
-/* Optional: Spalte kann bleiben (HTML unverändert) */
 .timeline-line-col {
   width: 0;
-  position: relative;
 }
 
-/* Bilder */
-.timeline-images {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.timeline-item img {
-  width: 360px;
-  height: 236px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  flex-shrink: 0;
-  box-shadow: 0 16px 36px rgba(15,23,42,0.22);
-  transition: all 0.18s ease;
-}
-
-.timeline-item:hover img {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 48px rgba(15,23,42,0.28);
-}
-
-/* Content-Box */
-.timeline-content {
-  padding: 24px 26px;
-  border-radius: var(--radius-lg);
-}
-
-/* Label IN der Box bleibt */
-.timeline-label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--muted-2);
-  margin-bottom: 4px;
-}
-
-.timeline-content h3 { margin-bottom: 6px; }
-
-/* ============================================================
-   Marker auf dem Strahl (Tick + gedrehter Text)
-============================================================ */
-
-/* 1) Tick: linke Kante berührt Strahl, gleiche Farbe wie Strahl */
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: 60px;                 /* exakt auf dem Strahl */
-  top: 50%;
-  transform: translateY(-50%); /* NUR Y zentrieren -> X bleibt exakt */
-  width: 22px;                /* Tick geht nach rechts */
-  height: 4px;                /* gleiche Dicke wie Strahl */
-  background: var(--accent-b);
-  border-radius: 999px;
-  box-shadow: 0 10px 22px rgba(37,99,235,0.18);
-}
-
-/* 2) Gedrehtes Label: bewusst NACH LINKS, damit es nicht über Bilder ragt */
+/* Seitliche Schritt-Beschriftung */
 .timeline-item::after {
   content: attr(data-step);
   position: absolute;
-  left: 60px;                 /* Bezugspunkt = Strahl */
+  left: 60px;
   top: 50%;
-
-  /* wichtig: erst nach links ziehen, dann drehen */
-  transform: translate(-130%, -50%) rotate(-90deg);
+  transform: translate(-140%, -50%) rotate(-90deg);
   transform-origin: center;
 
   font-size: 0.78rem;
@@ -555,31 +461,52 @@ section:nth-of-type(even) .ep-text {
   pointer-events: none;
 }
 
-/* ============================================================
-   TIMELINE – RESPONSIVE
-============================================================ */
+/* Bilder */
+.timeline-images {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.timeline-item img {
+  width: 360px;
+  height: 236px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 36px rgba(15,23,42,0.22);
+}
+
+/* Content-Box */
+.timeline-content {
+  padding: 24px 26px;
+  border-radius: var(--radius-lg);
+}
+
+.timeline-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  margin-bottom: 4px;
+}
+
+/* Responsive */
 @media (max-width: 900px) {
-  .timeline-wrapper { 
-    padding-left: 30px; 
-  }
-
-  .timeline-wrapper::before { 
-    left: 12px; 
-  }
-
-  .timeline-item::before {
-    left: 12px;
-  }
+  .timeline-wrapper { padding-left: 30px; }
+  .timeline-wrapper::before { left: 12px; }
 
   .timeline-item::after {
     left: 12px;
-    transform: translate(-125%, -50%) rotate(-90deg);
+    transform: translate(-130%, -50%) rotate(-90deg);
   }
 
   .timeline-item img {
     width: min(360px, 100%);
   }
 }
+
+
+
 
 
 
