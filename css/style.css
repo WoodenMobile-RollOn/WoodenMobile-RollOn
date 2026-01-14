@@ -460,23 +460,26 @@ section:nth-of-type(even) .ep-text {
   border-radius: 999px;
 }
 
-/* Pfeil am Ende – jetzt exakt auf die MITTE der Linie gesetzt */
+/* Pfeil am Ende des Zeitstrahls – EXAKT ausgerichtet */
 .timeline-wrapper::after {
   content: "";
   position: absolute;
 
-  /* Linie: left 60px + Hälfte von 4px = 2px => 62px */
+  /* Linienmitte: 60px + 2px (Linienbreite/2) */
   left: 62px;
   bottom: 0;
 
   width: 0;
   height: 0;
 
-  /* größer */
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-top: 20px solid var(--accent-b);
+
+  /* WICHTIG: halbe Pfeilbasis nach links */
+  margin-left: -14px;
 }
+
 
 .timeline-item {
   position: relative;
@@ -551,21 +554,10 @@ section:nth-of-type(even) .ep-text {
   margin-bottom: 4px;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
-  .timeline-wrapper { padding-left: 30px; }
-
-  /* Linie: left 12px, Mitte = 14px */
-  .timeline-wrapper::before { left: 12px; }
-  .timeline-wrapper::after  { left: 14px; }
-
-  .timeline-item::after {
-    left: 14px;
-    transform: translate(-130%, -50%) rotate(-90deg);
-  }
-
-  .timeline-item img {
-    width: min(360px, 100%);
+  .timeline-wrapper::after {
+    left: 14px;      /* 12px Linie + 2px Mitte */
+    margin-left: -14px;
   }
 }
 
