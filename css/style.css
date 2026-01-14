@@ -135,34 +135,87 @@ section:nth-of-type(even) .ep-text {
   background: #ffffff;
 }
 
+/* Bilder wirklich als Hintergrund-Elemente */
+.hero-image-left,
+.hero-image-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32vw;
+  max-width: 500px;
+  height: 52vh;
+  max-height: 520px;
+
+  /* WICHTIG: hinter den Text */
+  z-index: 0;
+  opacity: 0.95;          /* leicht „hinterlegt“ */
+  pointer-events: none;   /* damit nichts „blockiert“ beim Klicken */
+}
+
+.hero-image-left { left: 3%; }
+.hero-image-right { right: 3%; }
+
+.hero-image-left img,
+.hero-image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+/* Content liegt drüber, aber ohne eigenen Hintergrund */
 .hero-content {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   max-width: var(--container-max);
   margin: 0 auto;
   text-align: center;
-  padding: 0 8%;
 
-  /* NEU: Content insgesamt etwas nach unten schieben */
-  padding-top: 60px;
+  /* KEIN padding-top mehr, damit nichts in die Bilder reinrutscht */
+  padding: 0 8%;
 }
 
+/* Überschrift etwas weiter nach unten, ohne den ganzen Block zu verschieben */
 .hero-content h1 {
   font-size: 4.8rem;
-  margin-top: 0;          /* kontrolliert */
+  margin-top: 40px;       /* <- das ist der gewünschte „weiter unten“-Effekt */
   margin-bottom: 1.4rem;
   color: var(--text-strong);
+
+  /* optional: bessere Lesbarkeit über Bild */
+  text-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .hero-sub {
   font-size: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.6rem;
   color: #374151;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 2.4rem auto 3.0rem;
+  max-width: 750px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.hero-list li {
+  margin-bottom: 1rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 
 /* ============================================================
-   BUTTONS
+   BUTTONS (einheitlich gefüllt in Blau)
 ============================================================ */
 .btn-primary,
 .btn-ghost {
@@ -174,38 +227,32 @@ section:nth-of-type(even) .ep-text {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   font-size: 1rem;
-}
 
-/* Primärer Button (leicht veredelt) */
-.btn-primary {
+  /* Einheitliches Fill für alle */
   background: linear-gradient(135deg, #38bdf8, #2563eb);
   color: #f9fafb;
-  border: 1px solid rgba(59,130,246,0.9);
-  box-shadow: 0 14px 32px rgba(37,99,235,0.45);
+  border: 1px solid rgba(59,130,246,0.85);
+  box-shadow: 0 14px 32px rgba(37,99,235,0.38);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #0ea5e9, #1d4ed8);
-  box-shadow: 0 18px 42px rgba(37,99,235,0.55);
-}
-
-/* Sekundäre Buttons – jetzt auch blau, aber „luftiger“ */
-.btn-ghost {
-  background: rgba(37,99,235,0.08);
-  color: #1d4ed8;
-  border: 2px solid rgba(37,99,235,0.35);
-  backdrop-filter: blur(10px);
-}
-
+.btn-primary:hover,
 .btn-ghost:hover {
   transform: translateY(-2px);
-  background: rgba(37,99,235,0.14);
-  border-color: #2563eb;
-  box-shadow: 0 12px 28px rgba(37,99,235,0.25);
+  filter: brightness(0.98);
+  box-shadow: 0 18px 42px rgba(37,99,235,0.52);
 }
+
+/* Optional: ganz leichter Unterschied (nicht Fill!) damit Primary minimal „wichtiger“ wirkt */
+.btn-primary {
+  box-shadow: 0 16px 36px rgba(37,99,235,0.46);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,0.55); /* subtiler „glow“ Look */
+}
+
 
 /* ============================================================
    KEYPOINTS
