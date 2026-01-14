@@ -459,19 +459,22 @@ section:nth-of-type(even) .ep-text {
   border-radius: 999px;
 }
 
-/* Pfeil am Ende des Zeitstrahls */
+/* Pfeil am Ende des Zeitstrahls – korrigiert & größer */
 .timeline-wrapper::after {
   content: "";
   position: absolute;
+
+  /* exakt mittig zur 4px Linie */
   left: 60px;
   bottom: 0;
-  transform: translateX(-50%);
 
   width: 0;
   height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 12px solid var(--accent-b);
+
+  /* größer & stabiler */
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 18px solid var(--accent-b);
 }
 
 .timeline-item {
@@ -550,10 +553,11 @@ section:nth-of-type(even) .ep-text {
   .timeline-wrapper { padding-left: 30px; }
   .timeline-wrapper::before { left: 12px; }
   .timeline-wrapper::after { left: 12px; } /* Pfeil folgt der Linie */
+   
+
 
   .timeline-item::after {
     left: 12px;
-    transform: translate(-130%, -50%) rotate(-90deg);
   }
 
   .timeline-item img {
