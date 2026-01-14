@@ -424,13 +424,15 @@ section:nth-of-type(even) .ep-text {
 /* ============================================================
    TIMELINE
 ============================================================ */
-.timeline .container > h2 { margin-bottom: 0.4rem; }
+.timeline .container > h2 { 
+  margin-bottom: 0.4rem; 
+}
 
-.timeline-sub {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 60px;
-  color: var(--text-muted);
+.timeline-sub { 
+  text-align: center; 
+  max-width: 700px; 
+  margin: 0 auto 60px; 
+  color: var(--text-muted); 
 }
 
 .timeline-wrapper {
@@ -440,6 +442,7 @@ section:nth-of-type(even) .ep-text {
   padding-bottom: 40px;
 }
 
+/* Haupt-Linie */
 .timeline-wrapper::before {
   content: "";
   position: absolute;
@@ -448,35 +451,29 @@ section:nth-of-type(even) .ep-text {
   bottom: 36px;
   width: 4px;
   background: linear-gradient(to bottom, var(--accent-a), var(--accent-b));
+  border-radius: 999px;
 }
 
 .timeline-item {
+  position: relative;
   display: flex;
   gap: 34px;
   margin-bottom: 60px;
-  position: relative;
   align-items: center;
 }
 
-/* Hinweis: In deinem HTML gibt es .timeline-line-col und .timeline-dot.
-   Dafür gab es vorher keine Styles – hier ergänzt, damit es sauber ist. */
+/* Punkt komplett entfernen */
+.timeline-dot {
+  display: none;
+}
+
+/* Der alte Line-Col darf bleiben, wir nutzen ihn nicht mehr aktiv */
 .timeline-line-col {
-  width: 0; /* Spalte existiert, die Linie kommt aus ::before der wrapper */
+  width: 0;
   position: relative;
 }
 
-.timeline-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: var(--accent-b);
-  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
-  position: absolute;
-  left: 54px;  /* auf die Linie ausrichten (60px - halb dot) */
-  top: 50%;
-  transform: translateY(-50%);
-}
-
+/* Bilder */
 .timeline-images {
   display: flex;
   gap: 14px;
@@ -489,20 +486,22 @@ section:nth-of-type(even) .ep-text {
   object-fit: cover;
   border-radius: var(--radius-md);
   flex-shrink: 0;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22);
+  box-shadow: 0 16px 36px rgba(15,23,42,0.22);
   transition: all 0.18s ease;
 }
 
 .timeline-item:hover img {
   transform: translateY(-4px);
-  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.28);
+  box-shadow: 0 22px 48px rgba(15,23,42,0.28);
 }
 
+/* Content-Box */
 .timeline-content {
   padding: 24px 26px;
   border-radius: var(--radius-lg);
 }
 
+/* Label in der Box bleibt wie gehabt */
 .timeline-label {
   font-size: 0.78rem;
   text-transform: uppercase;
@@ -511,7 +510,82 @@ section:nth-of-type(even) .ep-text {
   margin-bottom: 4px;
 }
 
-.timeline-content h3 { margin-bottom: 6px; }
+/* --- Neue Marker auf dem Strahl --- */
+
+/* 1) Begrenzung/Markierung (kleiner Querstrich) auf der Linie */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 60px;                 /* exakt auf der Hauptlinie */
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;                /* Länge des „Ticks“ */
+  height: 4px;                /* Dicke wie die Linie */
+  background: var(--accent-b);
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgba(37,99,235,0.25);
+}
+
+/* 2) Gedrehtes "Schritt X" auf/bei der Linie (aus data-step) */
+.timeline-item::after {
+  content: attr(data-step);
+  position: absolute;
+  left: 60px;                 /* an der Linie */
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+
+  /* kleines „Label-Plättchen“, damit es lesbar bleibt */
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(226,232,240,0.95);
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+
+  /* ein bisschen Abstand von Tick/Elementen */
+  margin-left: -38px;         /* schiebt das gedrehte Label etwas nach links */
+  white-space: nowrap;
+}
+
+/* Überschrift im Content */
+.timeline-content h3 {
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   TIMELINE – RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+  .timeline-wrapper { 
+    padding-left: 30px; 
+  }
+
+  .timeline-wrapper::before { 
+    left: 12px; 
+  }
+
+  /* Tick + gedrehter Text an die neue Linienposition */
+  .timeline-item::before {
+    left: 12px;
+  }
+
+  .timeline-item::after {
+    left: 12px;
+    margin-left: -34px; /* etwas weniger rausziehen auf Mobile */
+  }
+
+  /* Bilder etwas flexibler, damit’s nicht crasht */
+  .timeline-item img {
+    width: min(360px, 100%);
+  }
+}
+
 
 /* ============================================================
    DOWNLOADS
