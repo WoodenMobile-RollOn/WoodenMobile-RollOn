@@ -632,85 +632,64 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   CONTACT
+   CONTACT – kompakter & breiter gesetzt
 ============================================================ */
 .contact .container {
-  max-width: 900px;
+  max-width: 1100px;          /* breiter als vorher → längere Zeilen */
   text-align: center;
 }
 
+/* Intro-Text: deutlich breiter + engerer Abstand */
 .contact-intro {
-  max-width: 680px;
-  margin: 0 auto 36px;
+  max-width: 900px;           /* vorher ~680px */
+  margin: 0 auto 22px;        /* weniger Abstand nach unten */
   color: var(--text-muted);
+  line-height: 1.65;          /* etwas dichter */
 }
 
-/* Zentrierter Kontaktblock */
+/* Zentrierter Kontaktblock – enger */
 .contact-center {
   display: flex;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 14px;        /* vorher deutlich größer */
 }
 
 .contact-card {
-  padding: 26px 30px;
+  padding: 22px 26px;         /* etwas kompakter */
   border-radius: var(--radius-lg);
   max-width: 420px;
   width: 100%;
 }
 
 .contact-card h3 {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .contact-card p {
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;          /* engerer Textabstand */
   color: var(--text);
 }
 
-/* Aktionen */
+/* Button näher an den Kontaktblock */
 .contact-actions {
   display: flex;
   justify-content: center;
+  margin-top: 6px;            /* vorher deutlich mehr Luft */
 }
 
-/* Auffälliger Auftraggeber-Button */
-.btn-partner {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 16px 34px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-
-  border-radius: 999px;
-  text-decoration: none;
-
-  color: #ffffff;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  border: 1px solid rgba(30,64,175,0.9);
-
-  box-shadow:
-    0 18px 40px rgba(37,99,235,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.25);
-
-  transition: all 0.2s ease;
-}
-
-.btn-partner:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
-  box-shadow:
-    0 24px 52px rgba(37,99,235,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.3);
-}
-
-/* Responsive */
+/* Responsive Feinjustierung */
 @media (max-width: 900px) {
+  .contact .container {
+    max-width: 100%;
+  }
+
+  .contact-intro {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
   .contact-card {
-    padding: 22px 24px;
+    padding: 20px 22px;
   }
 }
 
