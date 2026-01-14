@@ -635,39 +635,29 @@ section:nth-of-type(even) .ep-text {
    CONTACT
 ============================================================ */
 .contact .container {
-  max-width: 1100px; /* ähnlich wie Open Source */
-}
-
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1.25fr 0.9fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.contact-content h2 {
-  margin-bottom: 0.7rem;
+  max-width: 1100px;
+  text-align: center;
 }
 
 .contact-intro {
-  text-align: center;
   max-width: 720px;
-  margin: 0 auto 26px;
+  margin: 0 auto 32px;
   color: var(--text-muted);
 }
 
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-  margin-top: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 28px;
 }
 
-/* Kartenoptik: greift automatisch auch deine section:nth-of-type(...) Regeln,
-   aber wir geben sinnvolle Defaults dazu */
+/* Karten übernehmen automatisch den Section-Stil
+   durch deine section:nth-of-type(...) Regeln */
 .contact-card {
-  padding: 20px 22px;
+  padding: 24px 26px;
   border-radius: var(--radius-lg);
+  text-align: left;
 }
 
 .contact-card h3 {
@@ -680,9 +670,11 @@ section:nth-of-type(even) .ep-text {
 }
 
 .contact-link {
+  display: inline-block;
+  margin-top: 6px;
   color: #2563eb;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .contact-link:hover {
@@ -691,55 +683,14 @@ section:nth-of-type(even) .ep-text {
 
 .contact-actions {
   display: flex;
-  gap: 12px;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-/* Rechte Seite (wie Downloads-Box/Preview) */
-.contact-box {
-  padding: 24px 24px 22px;
-  border-radius: var(--radius-lg);
-}
-
-.contact-note {
-  margin: 0 0 14px 0;
-  color: var(--text-muted);
-}
-
-/* Form-Platzhalter (nur Optik) */
-.contact-form-placeholder {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.contact-form-placeholder .line {
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(15,23,42,0.06);
-  border: 1px solid rgba(148,163,184,0.35);
-}
-
-.contact-form-placeholder .line.short {
-  width: 70%;
-}
-
-.contact-form-placeholder .line.tall {
-  height: 70px;
-  border-radius: var(--radius-md);
+  margin-top: 10px;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .contact-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-box {
-    margin-top: 10px;
+  .contact-card {
+    text-align: center;
   }
 }
 
