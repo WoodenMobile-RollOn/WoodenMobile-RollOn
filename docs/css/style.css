@@ -632,33 +632,32 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   CONTACT – kompakter & breiter gesetzt
+   CONTACT – kompakt, breit, Button im Kontaktblock
 ============================================================ */
 .contact .container {
-  max-width: 1100px;          /* breiter als vorher → längere Zeilen */
+  max-width: 1100px;
   text-align: center;
 }
 
-/* Intro-Text: deutlich breiter + engerer Abstand */
 .contact-intro {
-  max-width: 900px;           /* vorher ~680px */
-  margin: 0 auto 22px;        /* weniger Abstand nach unten */
+  max-width: 900px;
+  margin: 0 auto 22px;
   color: var(--text-muted);
-  line-height: 1.65;          /* etwas dichter */
+  line-height: 1.65;
 }
 
-/* Zentrierter Kontaktblock – enger */
+/* Zentrierter Kontaktblock */
 .contact-center {
   display: flex;
   justify-content: center;
-  margin-bottom: 14px;        /* vorher deutlich größer */
 }
 
 .contact-card {
-  padding: 22px 26px;         /* etwas kompakter */
+  padding: 22px 26px;
   border-radius: var(--radius-lg);
   max-width: 420px;
   width: 100%;
+  text-align: center;
 }
 
 .contact-card h3 {
@@ -666,18 +665,16 @@ section:nth-of-type(even) .ep-text {
 }
 
 .contact-card p {
-  margin: 0 0 6px 0;          /* engerer Textabstand */
+  margin: 0 0 6px 0;
   color: var(--text);
 }
 
-/* Button näher an den Kontaktblock */
-.contact-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 6px;            /* vorher deutlich mehr Luft */
+/* Button direkt unter Telefonnummer */
+.contact-button {
+  margin-top: 10px;     /* bewusst wenig Abstand */
 }
 
-/* Responsive Feinjustierung */
+/* Responsive */
 @media (max-width: 900px) {
   .contact .container {
     max-width: 100%;
@@ -685,7 +682,6 @@ section:nth-of-type(even) .ep-text {
 
   .contact-intro {
     max-width: 100%;
-    margin-bottom: 20px;
   }
 
   .contact-card {
