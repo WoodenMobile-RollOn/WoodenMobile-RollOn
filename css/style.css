@@ -364,7 +364,7 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   HERAUSFORDERUNG / TEXT-BLOB
+   HERAUSFORDERUNG / TEXTBLOB  (analog zu Timeline/Downloads)
 ============================================================ */
 .text-blob {
   padding: 120px 20px;
@@ -372,26 +372,25 @@ section:nth-of-type(even) .ep-text {
 
 .text-blob h2 {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 0.8rem; /* ähnlich wie Downloads h2 */
 }
 
-/* Textbox wie Timeline / Feature Cards */
+/* Box-Stil wie timeline-content / downloads-content */
 .big-blob {
   max-width: 900px;
   margin: 0 auto;
-  padding: 32px 36px;
 
-  border-radius: var(--radius-lg);
+  padding: 24px 26px;              /* identisch zur timeline-content-Box */
+  border-radius: var(--radius-lg);  /* identisch */
 
-  /* gleiche Typo wie andere Content-Boxen */
-  font-size: 1rem;          /* ← identisch zu Timeline-Text */
-  line-height: 1.7;
+  /* Typo bewusst NICHT ändern -> erbt body (wie Timeline/Downloads) */
   color: var(--text);
 }
 
-/* Absätze ruhig und gleichmäßig */
+/* Absatzrhythmus wie in normalen Textboxen */
 .big-blob p {
   margin: 0 0 14px 0;
+  color: var(--text);              /* nicht muted, damit wie Timeline wirkt */
 }
 
 /* Letzter Absatz ohne Extra-Abstand */
@@ -399,22 +398,26 @@ section:nth-of-type(even) .ep-text {
   margin-bottom: 0;
 }
 
-/* Hervorhebungen nur typografisch, nicht größer */
+/* Hervorhebungen: nur Gewicht / Stil, keine Größenänderung */
 .big-blob strong {
   font-weight: 700;
 }
 
 .big-blob em {
-  font-style: italic;
   color: var(--text-muted);
 }
 
 /* Responsive */
 @media (max-width: 900px) {
+  .text-blob {
+    padding: 90px 20px;
+  }
+
   .big-blob {
-    padding: 26px 24px;
+    padding: 22px 24px;
   }
 }
+
 
 
 /* ============================================================
