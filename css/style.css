@@ -706,19 +706,47 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   CONTACT – Partner Button (erzwingt Blau)
+   CONTACT – vollständige Zentrierung
 ============================================================ */
+
+/* gesamter Contact-Bereich */
+.contact {
+  text-align: center;
+}
+
+/* Kontakt-Box selbst */
+.contact-card {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Überschrift im Kontaktblock */
+.contact-card h3 {
+  text-align: center;
+}
+
+/* Mail & Telefonnummer */
+.contact-card p {
+  text-align: center;
+}
+
+/* Button exakt mittig unter der Nummer */
+.contact-card .btn-partner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .btn-partner {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   margin-top: 10px;
-  margin-left: auto;      /* ← NEU */
-  margin-right: auto;     /* ← NEU */
+  margin-left: auto;
+  margin-right: auto;
 
   padding: 14px 30px;
-
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -734,14 +762,6 @@ section:nth-of-type(even) .ep-text {
 
   transition: all 0.2s ease;
 }
-
-.btn-partner:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #0ea5e9, #1d4ed8) !important;
-  box-shadow: 0 22px 48px rgba(37,99,235,0.6);
-}
-
-
 
 /* ============================================================
    OPEN SOURCE
