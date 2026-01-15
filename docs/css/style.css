@@ -417,6 +417,8 @@ section:nth-of-type(even) .ep-text {
   border-radius: var(--radius-lg);
 
   color: var(--text);
+
+  text-align: center;         /* ← DAS war der fehlende Punkt */
 }
 
 .text-blob .big-blob p {
@@ -447,7 +449,6 @@ section:nth-of-type(even) .ep-text {
     padding: 22px 24px;
   }
 }
-
 
 
 
