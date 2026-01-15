@@ -394,20 +394,11 @@ section:nth-of-type(even) .ep-text {
 
 
 /* ============================================================
-   HERAUSFORDERUNG / TEXTBLOB
+   HERAUSFORDERUNG / TEXTBLOB (BREITER WIE CONTACT)
 ============================================================ */
-.text-blob {
-  padding: 120px 20px;
-}
-
-.text-blob h2 {
-  text-align: center;
-  margin-bottom: 0.8rem;
-}
-
-/* gleiche effektive Textbreite wie Contact */
-.big-blob {
-  max-width: 960px;           /* ← angepasst */
+.text-blob .big-blob {
+  max-width: 1100px;      /* deutlich breiter */
+  width: 100%;
   margin: 0 auto;
   padding: 24px 26px;
 
@@ -415,30 +406,17 @@ section:nth-of-type(even) .ep-text {
   color: var(--text);
 }
 
-.big-blob p {
+.text-blob .big-blob p {
   margin: 0 0 14px 0;
   color: var(--text);
 }
 
-.big-blob p:last-child {
+.text-blob .big-blob p:last-child {
   margin-bottom: 0;
 }
 
-.big-blob strong {
-  font-weight: 700;
-}
-
-.big-blob em {
-  color: var(--text-muted);
-}
-
-/* Responsive */
 @media (max-width: 900px) {
-  .text-blob {
-    padding: 90px 20px;
-  }
-
-  .big-blob {
+  .text-blob .big-blob {
     max-width: 100%;
     padding: 22px 24px;
   }
