@@ -342,16 +342,19 @@ section:nth-of-type(even) .ep-text {
   width: 100%;
 }
 
-/* Bilder */
+/* Bilder – vollständig sichtbar, kein Zuschnitt */
 .einsatz-prinzipien .ep-image img {
   width: 100%;
-  height: 400px;
+  height: auto;              /* ← Bildhöhe natürlich */
   display: block;
-  object-fit: cover;
+
+  object-fit: contain;       /* ← KEIN Cropping */
+  background: #ffffff;       /* optional: ruhiger Rand bei Hochformat */
 
   border-radius: var(--radius-md);
   box-shadow: 0 16px 40px rgba(15,23,42,0.15);
 }
+
 
 /* Textblock: WIRKLICH breit wie "Come in Contact" */
 .einsatz-prinzipien .ep-text {
