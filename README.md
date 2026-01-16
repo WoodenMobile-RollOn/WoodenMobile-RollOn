@@ -2,7 +2,7 @@ Our Project Website: https://woodenmobile-rollon.github.io/WoodenMobile-RollOn/i
 
 ## License
 
-© © 2026 RollOn e.V.
+© 2026 Roll On e.V. / Association Roll On – All rights reserved.
 
 - Hardware designs: CERN Open Hardware Licence v2 – Strongly Reciprocal
 - Documentation: Creative Commons BY-SA 4.0
