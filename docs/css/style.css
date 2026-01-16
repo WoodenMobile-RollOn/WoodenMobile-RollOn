@@ -324,17 +324,24 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   EINSATZ & PRINZIPIEN  (Bilder 2 nebeneinander + Textbreite wie CONTACT)
+   EINSATZ & PRINZIPIEN  (1 Bild zentriert, vollständig sichtbar)
 ============================================================ */
 
-/* Grid: 2 Bilder nebeneinander */
+/* Grid bleibt flexibel */
 .einsatz-prinzipien .ep-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   margin: 60px auto 34px;
   max-width: 1200px;
-  align-items: stretch;
+  align-items: center;
+  justify-items: center;          /* ← zentriert Items im Grid */
+}
+
+/* Wenn nur EIN Bild vorhanden ist → über beide Spalten ziehen */
+.einsatz-prinzipien .ep-grid > .ep-image:only-child {
+  grid-column: 1 / -1;            /* ← volle Breite */
+  max-width: 800px;               /* ← optisch angenehm, nicht zu breit */
 }
 
 /* Bild-Container */
@@ -342,14 +349,15 @@ section:nth-of-type(even) .ep-text {
   width: 100%;
 }
 
-/* Bilder – vollständig sichtbar, kein Zuschnitt */
+/* Bild vollständig sichtbar & zentriert */
 .einsatz-prinzipien .ep-image img {
-  width: 100%;
-  height: auto;              /* ← Bildhöhe natürlich */
   display: block;
+  width: 100%;
+  height: auto;                   /* natürliche Höhe */
+  margin: 0 auto;                 /* ← zentriert das Bild */
 
-  object-fit: contain;       /* ← KEIN Cropping */
-  background: #ffffff;       /* optional: ruhiger Rand bei Hochformat */
+  object-fit: contain;            /* kein Cropping */
+  background: #ffffff;
 
   border-radius: var(--radius-md);
   box-shadow: 0 16px 40px rgba(15,23,42,0.15);
