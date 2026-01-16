@@ -522,28 +522,25 @@ section:nth-of-type(even) .ep-text {
   position: relative;
   margin-top: 40px;
   padding-left: 120px;
-  padding-bottom: 64px; /* Platz für größeren Pfeil */
+  padding-bottom: 64px;
 }
 
-/* Haupt-Strahl
-   WICHTIG: left=60px ist die LINKE KANTE der 4px Linie -> Mitte liegt bei 62px */
+/* Haupt-Strahl */
 .timeline-wrapper::before {
   content: "";
   position: absolute;
   left: 60px;
   top: 0;
-  bottom: 26px; /* endet knapp vor dem Pfeil */
+  bottom: 26px;
   width: 4px;
   background: var(--accent-b);
   border-radius: 999px;
 }
 
-/* Pfeil am Ende des Zeitstrahls – EXAKT ausgerichtet */
+/* Pfeil am Ende */
 .timeline-wrapper::after {
   content: "";
   position: absolute;
-
-  /* Linienmitte: 60px + 2px (Linienbreite/2) */
   left: 62px;
   bottom: 0;
 
@@ -554,10 +551,8 @@ section:nth-of-type(even) .ep-text {
   border-right: 14px solid transparent;
   border-top: 20px solid var(--accent-b);
 
-  /* WICHTIG: halbe Pfeilbasis nach links */
   margin-left: -14px;
 }
-
 
 .timeline-item {
   position: relative;
@@ -580,8 +575,6 @@ section:nth-of-type(even) .ep-text {
 .timeline-item::after {
   content: attr(data-step);
   position: absolute;
-
-  /* ebenfalls auf Linienmitte (62px) */
   left: 62px;
   top: 50%;
   transform: translate(-140%, -50%) rotate(-90deg);
@@ -610,12 +603,20 @@ section:nth-of-type(even) .ep-text {
   flex-wrap: wrap;
 }
 
+/* FIX: Einheitliche Box, aber KEIN Cropping (contain + weißer Hintergrund) */
 .timeline-item img {
   width: 360px;
-  height: 236px;
-  object-fit: cover;
+  height: 236px;                 /* einheitliche Höhe bleibt */
+  display: block;
+
+  object-fit: contain;           /* <- kein Abschneiden */
+  background: #ffffff;           /* <- Restfläche wird weiß aufgefüllt */
+
   border-radius: var(--radius-md);
   box-shadow: 0 16px 36px rgba(15,23,42,0.22);
+
+  /* optional: macht die weiße Fläche "absichtlich" (kannst du lassen oder löschen) */
+  border: 1px solid rgba(226,232,240,0.9);
 }
 
 /* Content-Box */
@@ -634,11 +635,10 @@ section:nth-of-type(even) .ep-text {
 
 @media (max-width: 900px) {
   .timeline-wrapper::after {
-    left: 14px;      /* 12px Linie + 2px Mitte */
+    left: 14px;
     margin-left: -14px;
   }
 }
-
 
 
 
