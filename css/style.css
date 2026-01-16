@@ -505,7 +505,7 @@ section:nth-of-type(even) .ep-text {
 .feature-card h3 { margin-bottom: 10px; }
 
 /* ============================================================
-   TIMELINE  (inkl. Pfeil – korrekt zentriert)
+   TIMELINE  (Bilder breiter + mehr Platz rechts + Strahl weiter links + Pfeil bleibt)
 ============================================================ */
 .timeline .container > h2 { 
   margin-bottom: 0.4rem; 
@@ -521,15 +521,24 @@ section:nth-of-type(even) .ep-text {
 .timeline-wrapper {
   position: relative;
   margin-top: 40px;
-  padding-left: 120px;
+
+  /* Mehr Platz links für Labels + insgesamt mehr Raum für breitere Bilder
+     -> schiebt den Inhalt (Bilder + Textbox) nach rechts */
+  padding-left: 150px;
+
+  /* Platz für Pfeil */
   padding-bottom: 64px;
 }
 
-/* Haupt-Strahl */
+/* =========================
+   STRAHL (weiter links)
+   Linie ist 4px breit: Mitte = left + 2px
+   Wir setzen left = 44px -> Mitte = 46px
+========================= */
 .timeline-wrapper::before {
   content: "";
   position: absolute;
-  left: 60px;
+  left: 44px;            /* <- weiter links als vorher */
   top: 0;
   bottom: 26px;
   width: 4px;
@@ -537,11 +546,11 @@ section:nth-of-type(even) .ep-text {
   border-radius: 999px;
 }
 
-/* Pfeil am Ende */
+/* Pfeil am Ende – auf Linienmitte (46px) */
 .timeline-wrapper::after {
   content: "";
   position: absolute;
-  left: 62px;
+  left: 46px;            /* <- Linienmitte */
   bottom: 0;
 
   width: 0;
@@ -551,6 +560,7 @@ section:nth-of-type(even) .ep-text {
   border-right: 14px solid transparent;
   border-top: 20px solid var(--accent-b);
 
+  /* Pfeil um halbe Basis nach links */
   margin-left: -14px;
 }
 
@@ -571,11 +581,11 @@ section:nth-of-type(even) .ep-text {
   width: 0;
 }
 
-/* Seitliche Schritt-Beschriftung */
+/* Seitliche Schritt-Beschriftung – auf Linienmitte (46px) */
 .timeline-item::after {
   content: attr(data-step);
   position: absolute;
-  left: 62px;
+  left: 46px;            /* <- Linienmitte */
   top: 50%;
   transform: translate(-140%, -50%) rotate(-90deg);
   transform-origin: center;
@@ -603,19 +613,17 @@ section:nth-of-type(even) .ep-text {
   flex-wrap: wrap;
 }
 
-/* FIX: Einheitliche Box, aber KEIN Cropping (contain + weißer Hintergrund) */
+/* Bilder breiter, weiterhin ohne Cropping */
 .timeline-item img {
-  width: 360px;
-  height: 236px;                 /* einheitliche Höhe bleibt */
+  width: 420px;          /* <- breiter */
+  height: 250px;         /* <- etwas flacher/ruhiger, bleibt einheitlich */
   display: block;
 
-  object-fit: contain;           /* <- kein Abschneiden */
-  background: #ffffff;           /* <- Restfläche wird weiß aufgefüllt */
+  object-fit: contain;
+  background: #ffffff;
 
   border-radius: var(--radius-md);
   box-shadow: 0 16px 36px rgba(15,23,42,0.22);
-
-  /* optional: macht die weiße Fläche "absichtlich" (kannst du lassen oder löschen) */
   border: 1px solid rgba(226,232,240,0.9);
 }
 
@@ -633,12 +641,27 @@ section:nth-of-type(even) .ep-text {
   margin-bottom: 4px;
 }
 
+/* Responsive */
 @media (max-width: 900px) {
-  .timeline-wrapper::after {
+  .timeline-wrapper {
+    padding-left: 30px;
+  }
+
+  /* Mobile-Linie wie zuvor */
+  .timeline-wrapper::before { left: 12px; }
+  .timeline-wrapper::after  { left: 14px; margin-left: -14px; }
+
+  .timeline-item::after {
     left: 14px;
-    margin-left: -14px;
+    transform: translate(-130%, -50%) rotate(-90deg);
+  }
+
+  .timeline-item img {
+    width: min(420px, 100%);
+    height: 240px;
   }
 }
+
 
 
 
