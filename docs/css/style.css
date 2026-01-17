@@ -371,63 +371,60 @@ section:nth-of-type(even) .ep-text {
 /* ============================================================
    THE CHALLENGE  
 ============================================================ */
-.challenge {
+/* ============================================================
+   HERAUSFORDERUNG / TEXTBLOB  (FINAL – passt zu Einsatz & Timeline)
+============================================================ */
+
+.text-blob {
   padding: 120px 20px;
 }
 
-.challenge h2 {
+.text-blob h2 {
   text-align: center;
   margin-bottom: 0.8rem;
 }
 
-/* Äußere Box (Card) */
-.challenge .challenge-box {
-  max-width: 1100px;      /* gleiche Breite wie Contact */
+/* Äußere Box bleibt breit */
+.text-blob .big-blob {
+  max-width: 1100px;          /* gleiche Boxbreite wie Contact */
   width: 100%;
   margin: 0 auto;
 
-  padding: 32px 32px;     /* etwas mehr Luft */
+  padding: 32px 32px;
   border-radius: var(--radius-lg);
 
+  /* Card-Look wie überall */
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(226, 232, 240, 0.8);
   box-shadow: var(--shadow-strong);
   backdrop-filter: blur(18px);
 }
 
-/* INNERER Text → DAS war der fehlende Punkt */
-.challenge .challenge-box p {
-  max-width: 900px;       /* gleiche Textbreite wie Timeline */
-  margin: 0 auto;         /* ← zentriert den Textblock */
+/* 🔑 DAS ist der entscheidende Teil */
+.text-blob .big-blob p {
+  max-width: 900px;           /* Text schmaler als Box */
+  margin: 0 auto;             /* ← zentriert den Textblock */
 
-  text-align: center;     /* ← Text selbst mittig */
+  text-align: center;         /* ← Text selbst mittig */
   line-height: 1.7;
   color: var(--text);
 }
 
-/* Hervorhebungen */
-.challenge .challenge-box strong {
-  font-weight: 700;
-}
-
-.challenge .challenge-box em {
-  color: var(--text-muted);
-}
-
 /* Responsive */
 @media (max-width: 900px) {
-  .challenge {
+  .text-blob {
     padding: 90px 20px;
   }
 
-  .challenge .challenge-box {
+  .text-blob .big-blob {
     padding: 22px 24px;
   }
 
-  .challenge .challenge-box p {
+  .text-blob .big-blob p {
     max-width: 100%;
   }
 }
+
 /* ============================================================
    FEATURES
 ============================================================ */
