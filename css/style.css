@@ -372,7 +372,6 @@ section:nth-of-type(even) .ep-text {
    THE CHALLENGE  
 ============================================================ */
 .challenge {
-  /* exakt wie vorher bei .text-blob */
   padding: 120px 20px;
 }
 
@@ -381,32 +380,32 @@ section:nth-of-type(even) .ep-text {
   margin-bottom: 0.8rem;
 }
 
-/* Box: identisch zum alten .text-blob .big-blob Look */
+/* Äußere Box (Card) */
 .challenge .challenge-box {
-  max-width: 1100px;          /* wie Contact-Breite */
+  max-width: 1100px;      /* gleiche Breite wie Contact */
   width: 100%;
   margin: 0 auto;
 
-  padding: 24px 26px;
+  padding: 32px 32px;     /* etwas mehr Luft */
   border-radius: var(--radius-lg);
-  color: var(--text);
 
-  text-align: center;         /* wie vorhin gefixt */
-
-  /* WICHTIG: damit die Box wieder genau so "card-like" wirkt wie vorher */
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(226, 232, 240, 0.8);
   box-shadow: var(--shadow-strong);
   backdrop-filter: blur(18px);
 }
 
-/* Text wie vorher */
+/* INNERER Text → DAS war der fehlende Punkt */
 .challenge .challenge-box p {
-  margin: 0;                  /* bei dir ist es ein einziger <p> */
+  max-width: 900px;       /* gleiche Textbreite wie Timeline */
+  margin: 0 auto;         /* ← zentriert den Textblock */
+
+  text-align: center;     /* ← Text selbst mittig */
+  line-height: 1.7;
   color: var(--text);
 }
 
-/* Hervorhebungen wie vorher */
+/* Hervorhebungen */
 .challenge .challenge-box strong {
   font-weight: 700;
 }
@@ -422,11 +421,13 @@ section:nth-of-type(even) .ep-text {
   }
 
   .challenge .challenge-box {
-    max-width: 100%;
     padding: 22px 24px;
   }
-}
 
+  .challenge .challenge-box p {
+    max-width: 100%;
+  }
+}
 /* ============================================================
    FEATURES
 ============================================================ */
