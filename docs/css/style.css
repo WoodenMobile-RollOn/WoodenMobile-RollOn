@@ -1,12 +1,12 @@
 /* ============================================================
-   WOODENMOBILE ROLLON – GEORDNET & KORRIGIERT (KOMPLETT)
+   WOODENMOBILE ROLLON 
 ============================================================ */
 
 /* ============================================================
    DESIGN TOKENS
 ============================================================ */
 :root {
-  /* Radius: bewusst moderat (weniger „puffy“) */
+
   --radius-sm: 10px;
   --radius-md: 12px;
   --radius-lg: 14px;
@@ -38,9 +38,7 @@
 /* ============================================================
    BASIS / RESET
 ============================================================ */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -61,14 +59,12 @@ h1 { font-size: 5.5rem; line-height: 1.1; }
 h2 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 1.5rem; }
 h3 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 1rem; }
 
-section {
-  padding: var(--section-pad-y) var(--section-pad-x);
-}
+section { padding: var(--section-pad-y) var(--section-pad-x); }
 
-/* Alle Sektionsüberschriften mittig + etwas weiter unten */
+
 section h2 {
   text-align: center;
-  margin-top: 16px; /* Überschrift etwas weiter unten vom oberen Rand */
+  margin-top: 16px;
   margin-bottom: 1.4rem;
 }
 
@@ -82,9 +78,8 @@ section:nth-of-type(odd)  { background-color: var(--bg-odd); }
 section:nth-of-type(even) { background-color: var(--bg-even); }
 
 /* ============================================================
-   KARTEN / BOXEN (automatisch je Section leicht variiert)
+   Textfelder und Bilder
 ============================================================ */
-/* Standard-Radius für alle Boxen/Karten – moderat */
 .feature-card,
 .timeline-content,
 .opensource-card,
@@ -98,7 +93,6 @@ section:nth-of-type(even) { background-color: var(--bg-even); }
   border-radius: var(--radius-lg);
 }
 
-/* Karten-/Textbox-Hintergrund je nach Section-Farbe */
 section:nth-of-type(odd) .feature-card,
 section:nth-of-type(odd) .timeline-content,
 section:nth-of-type(odd) .opensource-card,
@@ -135,7 +129,6 @@ section:nth-of-type(even) .ep-text {
   background: #ffffff;
 }
 
-/* Bilder wirklich als Hintergrund-Elemente */
 .hero-image-left,
 .hero-image-right {
   position: absolute;
@@ -146,10 +139,9 @@ section:nth-of-type(even) .ep-text {
   height: 52vh;
   max-height: 520px;
 
-  /* WICHTIG: hinter den Text */
   z-index: 0;
-  opacity: 0.95;          /* leicht „hinterlegt“ */
-  pointer-events: none;   /* damit nichts „blockiert“ beim Klicken */
+  opacity: 0.95;
+  pointer-events: none;
 }
 
 .hero-image-left { left: 3%; }
@@ -163,26 +155,20 @@ section:nth-of-type(even) .ep-text {
   border-radius: var(--radius-md);
 }
 
-/* Content liegt drüber, aber ohne eigenen Hintergrund */
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: var(--container-max);
   margin: 0 auto;
   text-align: center;
-
-  /* KEIN padding-top mehr, damit nichts in die Bilder reinrutscht */
   padding: 0 8%;
 }
 
-/* Überschrift etwas weiter nach unten, ohne den ganzen Block zu verschieben */
 .hero-content h1 {
   font-size: 4.8rem;
-  margin-top: 40px;       /* <- das ist der gewünschte „weiter unten“-Effekt */
+  margin-top: 40px;
   margin-bottom: 1.4rem;
   color: var(--text-strong);
-
-  /* optional: bessere Lesbarkeit über Bild */
   text-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
@@ -202,9 +188,7 @@ section:nth-of-type(even) .ep-text {
   font-size: 1.1rem;
 }
 
-.hero-list li {
-  margin-bottom: 1rem;
-}
+.hero-list li { margin-bottom: 1rem; }
 
 .hero-cta {
   display: flex;
@@ -213,9 +197,8 @@ section:nth-of-type(even) .ep-text {
   flex-wrap: wrap;
 }
 
-
 /* ============================================================
-   BUTTONS (identisch zu Download-Buttons)
+   BUTTONS 
 ============================================================ */
 .btn-primary,
 .btn-ghost {
@@ -236,7 +219,6 @@ section:nth-of-type(even) .ep-text {
   transition: all 0.16s ease;
 }
 
-/* Hover exakt wie Downloads */
 .btn-primary:hover,
 .btn-ghost:hover {
   background: linear-gradient(135deg, #eff6ff, #e0f2fe);
@@ -244,8 +226,6 @@ section:nth-of-type(even) .ep-text {
   box-shadow: 0 10px 26px rgba(37,99,235,0.18);
   transform: translateY(-1px);
 }
-
-
 
 /* ============================================================
    KEYPOINTS
@@ -261,7 +241,6 @@ section:nth-of-type(even) .ep-text {
   align-items: start;
 }
 
-/* h2 ist ohnehin zentriert über section h2; hier nur Abstand */
 .keypoints h2 {
   grid-column: 1 / -1;
   margin-bottom: 50px;
@@ -324,49 +303,38 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   EINSATZ & PRINZIPIEN  (1 Bild zentriert, vollständig sichtbar)
+   THE PEOPLE BEHIND IT  
 ============================================================ */
-
-/* Grid bleibt flexibel */
-.einsatz-prinzipien .ep-grid {
+.people-behind .pb-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 40px;
   margin: 60px auto 34px;
   max-width: 1200px;
+  justify-items: center;
   align-items: center;
-  justify-items: center;          /* ← zentriert Items im Grid */
 }
 
-/* Wenn nur EIN Bild vorhanden ist → über beide Spalten ziehen */
-.einsatz-prinzipien .ep-grid > .ep-image:only-child {
-  grid-column: 1 / -1;            /* ← volle Breite */
-  max-width: 800px;               /* ← optisch angenehm, nicht zu breit */
-}
-
-/* Bild-Container */
-.einsatz-prinzipien .ep-image {
+.people-behind .pb-image {
   width: 100%;
+  max-width: 800px;
 }
 
-/* Bild vollständig sichtbar & zentriert */
-.einsatz-prinzipien .ep-image img {
+.people-behind .pb-image img {
   display: block;
   width: 100%;
-  height: auto;                   /* natürliche Höhe */
-  margin: 0 auto;                 /* ← zentriert das Bild */
+  height: auto;
+  margin: 0 auto;
 
-  object-fit: contain;            /* kein Cropping */
+  object-fit: contain;
   background: #ffffff;
 
   border-radius: var(--radius-md);
   box-shadow: 0 16px 40px rgba(15,23,42,0.15);
 }
 
-
-/* Textblock: WIRKLICH breit wie "Come in Contact" */
-.einsatz-prinzipien .ep-text {
-  max-width: 1100px;         /* <- Contact-Breite */
+.people-behind .pb-text {
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   padding: 24px 26px;
@@ -379,48 +347,41 @@ section:nth-of-type(even) .ep-text {
   color: var(--text);
 }
 
-.einsatz-prinzipien .ep-text p {
+.people-behind .pb-text p {
   margin: 0;
   font-weight: 400;
   color: var(--text);
 }
 
-/* Responsive */
 @media (max-width: 900px) {
-  .einsatz-prinzipien .ep-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+  .people-behind .pb-grid {
     margin: 40px auto 24px;
     max-width: 100%;
+    gap: 18px;
   }
 
-  .einsatz-prinzipien .ep-image img {
-    height: 300px;
-  }
+  .people-behind .pb-image { max-width: 100%; }
 
-  .einsatz-prinzipien .ep-text {
+  .people-behind .pb-text {
     max-width: 100%;
     padding: 22px 24px;
   }
 }
 
-
-
 /* ============================================================
-   HERAUSFORDERUNG / TEXTBLOB  (Textbreite wie CONTACT)
+   THE CHALLENGE  
 ============================================================ */
-.text-blob {
+.challenge {
   padding: 120px 20px;
 }
 
-.text-blob h2 {
+.challenge h2 {
   text-align: center;
   margin-bottom: 0.8rem;
 }
 
-/* Box: WIRKLICH breit wie "Come in Contact" */
-.text-blob .big-blob {
-  max-width: 1100px;          /* <- Contact-Breite */
+.challenge .challenge-box {
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
 
@@ -428,47 +389,28 @@ section:nth-of-type(even) .ep-text {
   border-radius: var(--radius-lg);
 
   color: var(--text);
-
-  text-align: center;         /* ← DAS war der fehlende Punkt */
+  text-align: center;
 }
 
-.text-blob .big-blob p {
-  margin: 0 0 14px 0;
+.challenge .challenge-box p {
+  margin: 0;
   color: var(--text);
 }
 
-.text-blob .big-blob p:last-child {
-  margin-bottom: 0;
-}
+.challenge .challenge-box strong { font-weight: 700; }
 
-.text-blob .big-blob strong {
-  font-weight: 700;
-}
-
-.text-blob .big-blob em {
-  color: var(--text-muted);
-}
-
-/* Responsive */
 @media (max-width: 900px) {
-  .text-blob {
-    padding: 90px 20px;
-  }
-
-  .text-blob .big-blob {
+  .challenge { padding: 90px 20px; }
+  .challenge .challenge-box {
     max-width: 100%;
     padding: 22px 24px;
   }
 }
 
-
-
 /* ============================================================
    FEATURES
 ============================================================ */
-.features .container > h2 {
-  margin-bottom: 0.5rem;
-}
+.features .container > h2 { margin-bottom: 0.5rem; }
 
 .features-intro {
   text-align: center;
@@ -498,11 +440,6 @@ section:nth-of-type(even) .ep-text {
   width: 100%;
   height: 260px;
   object-fit: cover;
-  border-radius: var(--radius-md);
-}
-
-/* Wichtig: Bild-Radius trotz overflow clean halten */
-.feature-card img {
   border-top-left-radius: var(--radius-lg);
   border-top-right-radius: var(--radius-lg);
   border-bottom-left-radius: 0;
@@ -513,40 +450,28 @@ section:nth-of-type(even) .ep-text {
 .feature-card h3 { margin-bottom: 10px; }
 
 /* ============================================================
-   TIMELINE  (Bilder breiter + mehr Platz rechts + Strahl weiter links + Pfeil bleibt)
+   TIMELINE  
 ============================================================ */
-.timeline .container > h2 { 
-  margin-bottom: 0.4rem; 
-}
+.timeline .container > h2 { margin-bottom: 0.4rem; }
 
-.timeline-sub { 
-  text-align: center; 
-  max-width: 700px; 
-  margin: 0 auto 60px; 
-  color: var(--text-muted); 
+.timeline-sub {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  color: var(--text-muted);
 }
 
 .timeline-wrapper {
   position: relative;
   margin-top: 40px;
-
-  /* Mehr Platz links für Labels + insgesamt mehr Raum für breitere Bilder
-     -> schiebt den Inhalt (Bilder + Textbox) nach rechts */
   padding-left: 150px;
-
-  /* Platz für Pfeil */
   padding-bottom: 64px;
 }
 
-/* =========================
-   STRAHL (weiter links)
-   Linie ist 4px breit: Mitte = left + 2px
-   Wir setzen left = 44px -> Mitte = 46px
-========================= */
 .timeline-wrapper::before {
   content: "";
   position: absolute;
-  left: 44px;            /* <- weiter links als vorher */
+  left: 44px;
   top: 0;
   bottom: 26px;
   width: 4px;
@@ -554,11 +479,10 @@ section:nth-of-type(even) .ep-text {
   border-radius: 999px;
 }
 
-/* Pfeil am Ende – auf Linienmitte (46px) */
 .timeline-wrapper::after {
   content: "";
   position: absolute;
-  left: 46px;            /* <- Linienmitte */
+  left: 46px;
   bottom: 0;
 
   width: 0;
@@ -567,8 +491,6 @@ section:nth-of-type(even) .ep-text {
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-top: 20px solid var(--accent-b);
-
-  /* Pfeil um halbe Basis nach links */
   margin-left: -14px;
 }
 
@@ -580,20 +502,13 @@ section:nth-of-type(even) .ep-text {
   align-items: center;
 }
 
-/* Punkt entfernen */
-.timeline-dot { 
-  display: none; 
-}
+.timeline-dot { display: none; }
+.timeline-line-col { width: 0; }
 
-.timeline-line-col {
-  width: 0;
-}
-
-/* Seitliche Schritt-Beschriftung – auf Linienmitte (46px) */
 .timeline-item::after {
   content: attr(data-step);
   position: absolute;
-  left: 46px;            /* <- Linienmitte */
+  left: 46px;
   top: 50%;
   transform: translate(-140%, -50%) rotate(-90deg);
   transform-origin: center;
@@ -614,17 +529,15 @@ section:nth-of-type(even) .ep-text {
   pointer-events: none;
 }
 
-/* Bilder */
 .timeline-images {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
 
-/* Bilder breiter, weiterhin ohne Cropping */
 .timeline-item img {
-  width: 420px;          /* <- breiter */
-  height: 250px;         /* <- etwas flacher/ruhiger, bleibt einheitlich */
+  width: 420px;
+  height: 250px;
   display: block;
 
   object-fit: contain;
@@ -635,7 +548,6 @@ section:nth-of-type(even) .ep-text {
   border: 1px solid rgba(226,232,240,0.9);
 }
 
-/* Content-Box */
 .timeline-content {
   padding: 24px 26px;
   border-radius: var(--radius-lg);
@@ -649,15 +561,10 @@ section:nth-of-type(even) .ep-text {
   margin-bottom: 4px;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
-  .timeline-wrapper {
-    padding-left: 30px;
-  }
-
-  /* Mobile-Linie wie zuvor */
+  .timeline-wrapper { padding-left: 30px; }
   .timeline-wrapper::before { left: 12px; }
-  .timeline-wrapper::after  { left: 14px; margin-left: -14px; }
+  .timeline-wrapper::after { left: 14px; margin-left: -14px; }
 
   .timeline-item::after {
     left: 14px;
@@ -669,9 +576,6 @@ section:nth-of-type(even) .ep-text {
     height: 240px;
   }
 }
-
-
-
 
 /* ============================================================
    DOWNLOADS
@@ -741,32 +645,19 @@ section:nth-of-type(even) .ep-text {
 }
 
 /* ============================================================
-   CONTACT – vollständige Zentrierung
+   CONTACT 
 ============================================================ */
+.contact { text-align: center; }
 
-/* gesamter Contact-Bereich */
-.contact {
-  text-align: center;
-}
-
-/* Kontakt-Box selbst */
 .contact-card {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Überschrift im Kontaktblock */
-.contact-card h3 {
-  text-align: center;
-}
+.contact-card h3 { text-align: center; }
+.contact-card p  { text-align: center; }
 
-/* Mail & Telefonnummer */
-.contact-card p {
-  text-align: center;
-}
-
-/* Button exakt mittig unter der Nummer */
 .contact-card .btn-partner {
   margin-left: auto;
   margin-right: auto;
@@ -796,6 +687,12 @@ section:nth-of-type(even) .ep-text {
   box-shadow: 0 16px 36px rgba(37,99,235,0.45);
 
   transition: all 0.2s ease;
+}
+
+.btn-partner:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0ea5e9, #1d4ed8) !important;
+  box-shadow: 0 22px 48px rgba(37,99,235,0.6);
 }
 
 /* ============================================================
@@ -830,7 +727,7 @@ section:nth-of-type(even) .ep-text {
 }
 
 .opensource-card h3 { margin-bottom: 10px; }
-.opensource-card p { margin-bottom: 0.9rem; }
+.opensource-card p  { margin-bottom: 0.9rem; }
 
 .opensource-card a {
   color: #2563eb;
@@ -858,10 +755,7 @@ section:nth-of-type(even) .ep-text {
   justify-content: space-between;
 }
 
-.footer-brand {
-  margin: 0;
-  font-weight: 600;
-}
+.footer-brand { margin: 0; font-weight: 600; }
 
 .footer-meta {
   margin: 4px 0 0;
@@ -907,7 +801,6 @@ section:nth-of-type(even) .ep-text {
   .hero-content h1 { font-size: 3.5rem; }
 
   .keypoints-split,
-  .ep-grid,
   .downloads-layout {
     grid-template-columns: 1fr;
   }
@@ -921,16 +814,5 @@ section:nth-of-type(even) .ep-text {
 
   h2 { font-size: 1.9rem; }
 
-  .ep-image img { height: 300px; }
-
-  .ep-text {
-    padding: 30px 25px;
-    margin-top: 2rem;
-  }
-
   .downloads-content { padding: 24px 20px 22px; }
-
-  .timeline-wrapper { padding-left: 30px; }
-  .timeline-wrapper::before { left: 12px; }
-  .timeline-dot { left: 6px; }
 }
