@@ -8,4 +8,4 @@ Our Project Website: https://woodenmobile-rollon.github.io/WoodenMobile-RollOn/i
 - Documentation: Creative Commons BY-SA 4.0
 
 Full license texts: see `/LICENSES` directory. 
-Legal information: see project website (Impressum & Licensing).
+Legal information: see project website (Imprint & Licensing).
